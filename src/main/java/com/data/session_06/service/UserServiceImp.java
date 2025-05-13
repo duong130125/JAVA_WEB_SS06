@@ -12,17 +12,15 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public User getUserByUsernameAndPassword(String username, String password) {
-        return userDao.getUserByUsernameAndPassword(username, password);
+    public boolean login(String username, String password) {
+        return userDao.getUserByUsernameAndPassword(username, password) != null;
     }
 
     @Override
-    public boolean addUser(User user) {
-        return userDao.addUser(user);
-    }
-
-    @Override
-    public User getUserByUsername(String username) {
-        return userDao.getUserByUsername(username);
+    public boolean register(User user) {
+        if (userDao.getUserByUsername(user.getUsername()) == null) {
+            return userDao.addUser(user);
+        }
+        return false;
     }
 }

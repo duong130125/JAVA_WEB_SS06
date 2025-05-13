@@ -1,5 +1,6 @@
 package com.data.session_06.controller;
 
+import com.data.session_06.model.User;
 import com.data.session_06.service.UserService;
 import com.data.session_06.service.UserServiceImp;
 
